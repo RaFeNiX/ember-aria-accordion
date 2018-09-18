@@ -5,11 +5,14 @@ import { computed } from '@ember/object';
 export default Component.extend({
   layout,
   tagName: '',
+  formatedTitleForId: computed('title', function() {
+    return this.get('title').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(' ','')
+  }),
   accordionId: computed('title', function() {
-    return `accordion-${this.get('title').replace(' ','')}`;
+    return `accordion-${this.get('formatedTitleForId')}`;
   }),
   sectId: computed('title', function() {
-    return `sect-${this.get('title').replace(' ','')}`;
+    return `sect-${this.get('formatedTitleForId')}`;
   }),
   ariaExpanded: computed('active', 'title', 'refresh', function() {
     let _allowToggle = this.get('toggle');
