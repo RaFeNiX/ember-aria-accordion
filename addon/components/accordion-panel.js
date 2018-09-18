@@ -6,7 +6,7 @@ export default Component.extend({
   layout,
   tagName: '',
   formatedTitleForId: computed('title', function() {
-    return this.get('title').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(' ','')
+    return this.get('title').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(' ','').toLowerCase()
   }),
   accordionId: computed('title', function() {
     return `accordion-${this.get('formatedTitleForId')}`;
