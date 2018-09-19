@@ -9,6 +9,7 @@
     border-top: 1px solid hsl(0, 0%, 82%);
 }
 
+
 .accordion-title{
     font-family: Roboto;
     font-size: 1.2em;
@@ -27,6 +28,7 @@
   font-stretch: normal;
   line-height: normal;
   color: #4861a4;
+  grid-column: 2;
 }
 
 .accordion-section > * + * {
@@ -35,6 +37,9 @@
 
 .accordion-section dt{
     margin-bottom: 0;
+}
+.accordion-section button{
+    display:grid;
 }
 .accordion-trigger {
     background: none;
