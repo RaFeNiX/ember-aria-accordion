@@ -2,6 +2,31 @@
     border: 1px solid hsl(0, 0%, 82%);
     border-radius: .3em;
     box-shadow: 0 1px 2px hsl(0, 0%, 82%);
+    margin-bottom: 1.3em;
+}
+
+.accordion-section > * + * {
+    border-top: 1px solid hsl(0, 0%, 82%);
+}
+
+.accordion-title{
+    font-family: Roboto;
+    font-size: rem-calc(20px);
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    color: #2b3c6c;
+}
+
+.accordion-subtitle{
+  font-family: Roboto;
+  font-size: rem-calc(11px);
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  color: #2b3c6c;
 }
 
 .accordion-section > * + * {

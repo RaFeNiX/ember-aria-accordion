@@ -9,6 +9,11 @@
       <span class="accordion-title">
         {{title}}
       </span>
+      {{#if subtitle}}
+      <span class="accordion-subtitle">
+        {{subtitle}}
+      </span>
+      {{/if}}
       <span class="accordion-icon"></span>
     </button>
   </dt>
@@ -16,5 +21,5 @@
     <div>
       {{yield}}
     </div>
-  </dd>
+  </dd> 
 </div>
