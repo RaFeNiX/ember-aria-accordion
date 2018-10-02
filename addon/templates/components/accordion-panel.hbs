@@ -17,11 +17,13 @@
         {{/if}}
       </div>
       <div class="dv-title-flags">
-        {{#each flags as |flag index|}}
-          <div class="dv-flag">
-            {{flag}}
-          </div>
-        {{/each}}
+        {{#if flags}}
+          {{#each flags as |flag index|}}
+            <div class="dv-flag">
+              {{flag}}
+            </div>
+          {{/each}}
+        {{/if}}
       </div>
       <span class="accordion-icon"></span>
     </button>
