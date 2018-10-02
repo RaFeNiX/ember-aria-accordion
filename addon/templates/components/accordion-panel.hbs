@@ -6,14 +6,23 @@
         id={{accordionId}} 
         type="button"
       onkeydown={{action focusAccordion}} {{action select title}}>
-      <span class="accordion-title">
-        {{title}}
-      </span>
-      {{#if subtitle}}
-      <span class="accordion-subtitle">
-        {{subtitle}}
-      </span>
-      {{/if}}
+      <div class="dv-title">
+        <span class="accordion-title">
+          {{title}}
+        </span>
+        {{#if subtitle}}
+        <span class="accordion-subtitle">
+          {{subtitle}}
+        </span>
+        {{/if}}
+      </div>
+      <div class="dv-title-flags">
+        {{each flags as |flag index|}}
+          <div class="dv-flag">
+            {{flag}}
+          </div>
+        {{/each}}
+      </div>
       <span class="accordion-icon"></span>
     </button>
   </dt>
