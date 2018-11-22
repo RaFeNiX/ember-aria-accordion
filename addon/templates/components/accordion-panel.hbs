@@ -2,9 +2,9 @@
   <dt role="heading" aria-level="3">
     <button aria-expanded="{{ariaExpanded}}" 
       class="accordion-trigger" 
-        aria-controls={{sectId}} 
-        id={{accordionId}} 
-        type="button"
+      aria-controls={{sectId}} 
+      id={{accordionId}} 
+      type="button"
       onkeydown={{action focusAccordion}} {{action select title}}>
       <div class="dv-title">
         <span class="accordion-title">
@@ -18,11 +18,14 @@
       </div>
       <div class="dv-title-flags">
         {{#if flags}}
-          {{#each flags as |flag index|}}
-            <div class="dv-flag">
-              {{flag}}
-            </div>
-          {{/each}}
+        {{#each flags as |flag index|}}
+        <div class="dv-flag">
+          <svg class="checkout-credit-card-flag {{lowercase flag}}">
+            <title>{{uppercase flag}}</title>
+            <use xlink:href="assets/images/sprite-b2c-svg.svg#{{lowercase flag}}-flag"></use>
+          </svg>
+        </div>
+        {{/each}}
         {{/if}}
       </div>
       <span class="accordion-icon"></span>
@@ -32,5 +35,5 @@
     <div>
       {{yield}}
     </div>
-  </dd> 
+  </dd>
 </div>
