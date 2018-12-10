@@ -5,8 +5,11 @@ import { computed } from '@ember/object';
 export default Component.extend({
   layout,
   tagName: '',
+  selected: computed('active', function(){
+    return this.get('active') === this.get('title');
+  }),
   formatedTitleForId: computed('title', function() {
-    return this.get('title').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(' ','').toLowerCase()
+    return this.get('title').normalize('NFD').replace(/[\u0300-\u036f]| /g, '').toLowerCase()
   }),
   accordionId: computed('title', function() {
     return `accordion-${this.get('formatedTitleForId')}`;
