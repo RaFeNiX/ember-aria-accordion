@@ -5,8 +5,16 @@ import { computed } from '@ember/object';
 export default Component.extend({
   layout,
   tagName: '',
+  paymentOptions: {
+    "Transferência Bancária" : "PAYMENT_MODALITY_SAFETYPAY_TRANSF",
+    "Pagamento em dinheiro" : "PAYMENT_MODALITY_SAFETYPAY_MONEY",
+    "Cartão de Crédito" : "PAYMENT_MODALITY_CREDIT_CARD"
+  },
   selected: computed('active', function(){
-    return this.get('active') === this.get('title');
+    let atualAtivo = this.get('active') === this.get('title');
+    if (atualAtivo)
+      this.set('selectedPaymentMethod', this.paymentOptions[this.get('active')]);
+    return atualAtivo;
   }),
   formatedTitleForId: computed('title', function() {
     return this.get('title').normalize('NFD').replace(/[\u0300-\u036f]| /g, '').toLowerCase()
