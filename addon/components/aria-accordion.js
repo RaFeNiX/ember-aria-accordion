@@ -1,5 +1,6 @@
 import Component from '@ember/component';
 import layout from '../templates/components/aria-accordion';
+import { observer,get,set } from '@ember/object';
 
 const KEY_PAGE_UP = 33;
 const KEY_PAGE_DOWN = 34;
@@ -16,6 +17,14 @@ export default Component.extend({
   attributeBindings: ['role'],
   role: 'presentation',
   refresh: false,
+  paymentOptions: {
+    "Transferência bancária" : "PAYMENT_MODALITY_SAFETYPAY_TRANSF",
+    "Pagamento em dinheiro" : "PAYMENT_MODALITY_SAFETYPAY_MONEY",
+    "Cartão de crédito" : "PAYMENT_MODALITY_CREDIT_CARD"
+  },
+  paymentOpt: observer('active', function(){
+    set(this,'selectedPaymentMethod', this.paymentOptions[this.get('active')]);
+  }),
   init() {
     this._super(...arguments);
     let temp = new Set(); // eslint-disable-line
@@ -27,7 +36,6 @@ export default Component.extend({
     selectAccordion(e) {
       if(this.get('multiple')) {
         let _activePanels = this.get('activePanels');
-        // let _active = this.get('active');
         if(_activePanels.has(e) && this.get('toggle')) {
           _activePanels.delete(e);
         } else {
