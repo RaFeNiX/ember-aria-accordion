@@ -28,6 +28,7 @@ export default Component.extend({
   init() {
     this._super(...arguments);
     let temp = new Set(); // eslint-disable-line
+    this.set('active', 'Cartão de crédito');
     let active = this.get('active');
     temp.add(active);
     this.set('activePanels', temp);
