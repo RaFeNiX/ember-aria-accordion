@@ -23,7 +23,9 @@ export default Component.extend({
     "Cartão de crédito" : "PAYMENT_MODALITY_CREDIT_CARD"
   },
   paymentOpt: observer('active', function(){
-    set(this,'selectedPaymentMethod', this.paymentOptions[this.get('active')]);
+    let selectedOption = this.paymentOptions[this.get('active')];
+    set(this,'selectedPaymentMethod', selectedOption);
+    window.dataLayer.push({'event': 'selectedPaymentOption', 'gtm.paymentOption':selectedOption });
   }),
   init() {
     this._super(...arguments);
