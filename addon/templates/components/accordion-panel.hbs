@@ -20,8 +20,8 @@
         {{#if flags}}
         {{#each flags as |flag index|}}
         <div class="dv-flag">
-          <svg class="checkout-credit-card-flag {{lowercase flag}}">
-            <title>{{flag}}</title>
+          <svg class="checkout-credit-card-flag-safetypay {{lowercase flag}}">
+            <title>{{format-name flag}}</title>
             <use xlink:href="assets/images/sprite-b2c-svg.svg#{{lowercase flag}}-flag"></use>
           </svg>
         </div>
